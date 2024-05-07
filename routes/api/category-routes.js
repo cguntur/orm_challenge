@@ -46,10 +46,8 @@ router.post('/', async(req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async(req, res) => {
   // update a category by its `id` value
-  router.put('/:id', async (req, res) => {
-    // update a category by its `id` value
     try {
       const CategoryData = await Category.update(req.body, {
         individualHooks: true,
@@ -67,7 +65,6 @@ router.put('/:id', (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
 });
 
 router.delete('/:id', async(req, res) => {
